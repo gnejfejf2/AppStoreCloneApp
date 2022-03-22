@@ -28,15 +28,4 @@ extension VersionModelSection : AnimatableSectionModelType {
     }
 }
 
-struct VersionModel {
-    var version : String
-    var currentVersionReleaseDate : String
-    var releaseNotes : String?
-   
-}
 
-extension VersionModel : IdentifiableType, Equatable {
-    var identity: String {
-        return UUID().uuidString
-    }
-}

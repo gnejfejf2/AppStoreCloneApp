@@ -41,16 +41,12 @@ extension String{
     }
     
     func distanceTimeCal() -> String{
-        print("실행함?")
         let getTimeDateFormatter = DateFormatter()
         
         getTimeDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         getTimeDateFormatter.locale = Locale(identifier: "ko_KR")
         getTimeDateFormatter.timeZone = TimeZone(abbreviation: "KST")
         let time = getTimeDateFormatter.date(from: self) ?? Date()
-        print(self)
-        print(time)
-        
         let nowTime : Date = Date().addingTimeInterval(32400)
         
         var returnString : String = ""
@@ -71,7 +67,6 @@ extension String{
         let distanceDay = Calendar.current.dateComponents([.day], from:  time, to: dayString!).day! + 1
         let distanceYear = Calendar.current.dateComponents([.year], from: time, to: nowTime).year!
         
-        print("여기까지는올까?")
         
         if (distanceYear >= 1){
             let withYeardateFormatter = DateFormatter()

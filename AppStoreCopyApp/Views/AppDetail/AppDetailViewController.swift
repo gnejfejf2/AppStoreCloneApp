@@ -89,8 +89,7 @@ class AppDetailViewController : SuperViewControllerSetting<AppDetailViewModel> ,
             .disposed(by: disposeBag)
         
         
-        
-        
+      
        
        
     }

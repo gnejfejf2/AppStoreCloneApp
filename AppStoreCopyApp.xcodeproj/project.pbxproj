@@ -73,6 +73,7 @@
 		7E33625127E9AEB7002E49F1 /* VersionListViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E33625027E9AEB7002E49F1 /* VersionListViewCoordinator.swift */; };
 		7E33625327E9B416002E49F1 /* VersionListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E33625227E9B416002E49F1 /* VersionListViewController.storyboard */; };
 		7E33625727EA16EB002E49F1 /* VersionSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E33625627EA16EB002E49F1 /* VersionSectionModel.swift */; };
+		7E33625927EA21B0002E49F1 /* VersionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E33625827EA21B0002E49F1 /* VersionModel.swift */; };
 		7E997E8727E81D9500FB51A8 /* Int_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997E8627E81D9500FB51A8 /* Int_Extension.swift */; };
 		7E997E8A27E8313D00FB51A8 /* AppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997E8927E8313D00FB51A8 /* AppDetailViewController.swift */; };
 		7E997E8C27E8314800FB51A8 /* AppDetailViewCooridnator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997E8B27E8314800FB51A8 /* AppDetailViewCooridnator.swift */; };
@@ -168,6 +169,7 @@
 		7E33625027E9AEB7002E49F1 /* VersionListViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionListViewCoordinator.swift; sourceTree = "<group>"; };
 		7E33625227E9B416002E49F1 /* VersionListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VersionListViewController.storyboard; sourceTree = "<group>"; };
 		7E33625627EA16EB002E49F1 /* VersionSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionSectionModel.swift; sourceTree = "<group>"; };
+		7E33625827EA21B0002E49F1 /* VersionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionModel.swift; sourceTree = "<group>"; };
 		7E997E8627E81D9500FB51A8 /* Int_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int_Extension.swift; sourceTree = "<group>"; };
 		7E997E8927E8313D00FB51A8 /* AppDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewController.swift; sourceTree = "<group>"; };
 		7E997E8B27E8314800FB51A8 /* AppDetailViewCooridnator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewCooridnator.swift; sourceTree = "<group>"; };
@@ -476,6 +478,7 @@
 			isa = PBXGroup;
 			children = (
 				7E0C8DAD27E7184000B51BCB /* AppModel.swift */,
+				7E33625827EA21B0002E49F1 /* VersionModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -777,6 +780,7 @@
 				7E0C8D7E27E6D72400B51BCB /* GameViewCoordinator.swift in Sources */,
 				7E33624F27E9AEAD002E49F1 /* VersionListViewModel.swift in Sources */,
 				7E0C8D6B27E6D57000B51BCB /* AppTapViewController.swift in Sources */,
+				7E33625927EA21B0002E49F1 /* VersionModel.swift in Sources */,
 				7E0C8D9927E6EA3300B51BCB /* SearchViewSectionModel.swift in Sources */,
 				7E0C8D7227E6D61800B51BCB /* NetworkingAPI.swift in Sources */,
 				7E0C8D6227E6D4B000B51BCB /* Reactive_Extension.swift in Sources */,

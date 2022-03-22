@@ -27,4 +27,5 @@ struct AppModel: Codable {
     var averageUserRating : Double
     var userRatingCount : Int
     var releaseNotes : String?
+    
 }
