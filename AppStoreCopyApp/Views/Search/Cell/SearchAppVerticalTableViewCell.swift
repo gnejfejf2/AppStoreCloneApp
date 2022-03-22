@@ -26,13 +26,21 @@ class SearchAppVerticalTableViewCell: UITableViewCell , CellSettingProtocl {
     override func awakeFromNib() {
         super.awakeFromNib()
         uiSetting()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         uiSetting()
-        // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        appTopInformationView.iconImageView.image = nil
+        screenShotImageView1.image = nil
+        screenShotImageView2.image = nil
+        screenShotImageView3.image = nil
+       
+        
     }
     
     

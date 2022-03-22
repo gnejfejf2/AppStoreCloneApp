@@ -26,6 +26,13 @@ class AppDetailViewCoordinator: BaseCoordinator {
         
        
     }
+    
+    func versionHistoryView(appData : AppModel){
+        let coordinator = VersionListViewCoordinator(navigationController: navigationController)
+        coordinator.appData = appData
+        coordinator.start()
+        
+    }
   
     
 }

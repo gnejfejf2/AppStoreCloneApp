@@ -26,6 +26,15 @@ class SearchAppHoriziontalTableViewCell: UITableViewCell , CellSettingProtocl {
         uiSetting()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        appTopInformationView.iconImageView.image = nil
+        screenShotImageView1.image = nil
+  
+       
+        
+    }
+
     
     func uiSetting() {
        

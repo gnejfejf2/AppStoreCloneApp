@@ -20,7 +20,7 @@ class SearchViewModel : ViewModelBuilderProtocol {
     }
     
     struct Output {
-        let noSearchData : Driver<[SectionModel]>
+        let noSearchData : Driver<[SearchViewSectionModel]>
         let searchData : Driver<[AppModel]>
         let searchAction : Driver<Bool>
     }
@@ -40,7 +40,7 @@ class SearchViewModel : ViewModelBuilderProtocol {
     
     
     func transform(input: Input) -> Output {
-        let noSearchData = BehaviorSubject<[SectionModel]>(value: [.Keyword(items: []),.App(items: [])])
+        let noSearchData = BehaviorSubject<[SearchViewSectionModel]>(value: [.Keyword(items: []),.App(items: [])])
         let searchData = PublishSubject<[AppModel]>()
         let searchAction = PublishSubject<Bool>()
                                                              
@@ -55,7 +55,7 @@ class SearchViewModel : ViewModelBuilderProtocol {
             .withLatestFrom(noSearchData) { ($0 , $1) }
             .subscribe(onNext: { (keywords, data) in
                 var original = data
-                var keywordSectionItem : [SectionItem] = []
+                var keywordSectionItem : [SearchSectionItem] = []
                 keywords.forEach{
                     keywordSectionItem.append(.Keyword(keyword: $0))
                 }
@@ -76,7 +76,7 @@ class SearchViewModel : ViewModelBuilderProtocol {
             .withLatestFrom(noSearchData) { ($0 , $1) }
             .subscribe(onNext: { (appDatas, data) in
                 var original = data
-                var keywordSectionItem : [SectionItem] = []
+                var keywordSectionItem : [SearchSectionItem] = []
                 appDatas.results.forEach{
                     keywordSectionItem.append(.App(appModel: $0))
                 }

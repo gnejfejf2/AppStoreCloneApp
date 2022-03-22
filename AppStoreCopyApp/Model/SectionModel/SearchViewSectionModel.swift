@@ -6,12 +6,12 @@
 //
 import RxDataSources
 
-enum SectionModel {
-    case Keyword(items: [SectionItem])
-    case App(items: [SectionItem])
+enum SearchViewSectionModel {
+    case Keyword(items: [SearchSectionItem])
+    case App(items: [SearchSectionItem])
 }
 
-enum SectionItem {
+enum SearchSectionItem {
     case Keyword(keyword: String)
     case App(appModel: AppModel)
     
@@ -36,9 +36,9 @@ enum SectionItem {
     
 }
 
-extension SectionModel: SectionModelType {
+extension SearchViewSectionModel: SectionModelType {
     
-    typealias Item = SectionItem
+    typealias Item = SearchSectionItem
     
     var name : String {
         switch self {
@@ -49,7 +49,7 @@ extension SectionModel: SectionModelType {
         }
     }
     
-    var items: [SectionItem] {
+    var items: [SearchSectionItem] {
         switch self {
         case .Keyword(items: let items):
             return items.map { $0 }
@@ -58,7 +58,7 @@ extension SectionModel: SectionModelType {
         }
     }
     
-    init(original: SectionModel, items: [Item]) {
+    init(original: SearchViewSectionModel, items: [Item]) {
         switch  original {
         case .Keyword(items: _):
             self = .Keyword(items: items)

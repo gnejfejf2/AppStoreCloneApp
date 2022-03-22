@@ -93,7 +93,6 @@ class ReadMoreLabelView: UIStackView {
         label.font = font
         label.text = text
         label.sizeToFit()
-        print(label.frame.height)
         return label.frame.height
     }
     

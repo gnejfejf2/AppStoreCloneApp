@@ -21,12 +21,12 @@ class AppStoreCopyAppTests: XCTestCase {
     func testExample() {
         let url = "https://is4-ssl.mzstatic.com/image/thumb/PurpleSource126/v4/55/d6/be/55d6be52-cfd7-df37-2e27-847db2c7eefc/175deb8d-5b3b-4e77-9790-4014647c918d_1.png/392x696bb.png"
         
-        var components = url.components(separatedBy: "/")
+        let components = url.components(separatedBy: "/")
         components.last?.components(separatedBy: "x")
-        var imageSizeString = components.last?.components(separatedBy: "x")
+        let imageSizeString = components.last?.components(separatedBy: "x")
         
-        var width = imageSizeString?.first
-        var height = imageSizeString?.last?.filter{ $0.isNumber }
+        let width = imageSizeString?.first
+        let height = imageSizeString?.last?.filter{ $0.isNumber }
         
         XCTAssertEqual(components.last, "392x696bb.png")
     }

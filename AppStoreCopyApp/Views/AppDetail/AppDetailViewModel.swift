@@ -8,11 +8,11 @@
 import Foundation
 import RxSwift
 import RxCocoa
-
+import RxGesture
 class AppDetailViewModel : ViewModelBuilderProtocol {
     
     struct Input {
-    
+        let versionHistoryAction : Driver<UITapGestureRecognizer>
     }
     
     struct Output {
@@ -37,6 +37,14 @@ class AppDetailViewModel : ViewModelBuilderProtocol {
     
     func transform(input: Input) -> Output {
         let appData = BehaviorSubject<AppModel>(value: builder.appData)
+        
+        input.versionHistoryAction
+            .withLatestFrom(appData.asDriverOnErrorNever()){ $1 }
+            .drive{ [weak self] item in
+                guard let self = self else { return }
+                self.builder.coordinator.versionHistoryView(appData : item)
+            }
+            .disposed(by: disposeBag)
         
         
         return .init(

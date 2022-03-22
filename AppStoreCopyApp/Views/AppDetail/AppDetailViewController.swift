@@ -8,6 +8,8 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxGesture
+
 class AppDetailViewController : SuperViewControllerSetting<AppDetailViewModel> , StarSettingProtocol{
     
     
@@ -59,9 +61,15 @@ class AppDetailViewController : SuperViewControllerSetting<AppDetailViewModel> ,
     }
     
     override func viewModelBinding() {
+        let versionHistoryAction = versionHistoryButton.rx
+            .tapGesture()
+            .when(.recognized)
+            .asDriverOnErrorNever()
         
         
-        let output = viewModel.transform(input: .init())
+        let output = viewModel.transform(input: .init(
+            versionHistoryAction : versionHistoryAction
+        ))
         
       
         

@@ -26,7 +26,7 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
     
     
     
-    private var sectionTableDatasource = RxTableViewSectionedReloadDataSource<SectionModel>(
+    private var sectionTableDatasource = RxTableViewSectionedReloadDataSource<SearchViewSectionModel>(
         configureCell: { (dataSource, tableView, indexPath, item) in
             switch item {
             case .Keyword(let keyword) :
