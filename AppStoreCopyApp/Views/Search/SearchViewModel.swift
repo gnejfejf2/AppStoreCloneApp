@@ -16,14 +16,17 @@ class SearchViewModel : ViewModelBuilderProtocol {
 //        let searchKeyword : Driver<String>
         let searchAction : Driver<String?>
         let cancelAction : Driver<Void>
+        let appTapAction : Driver<IndexPath>
+        let searchAppTapAction : Driver<AppModel>
     }
     
     struct Output {
         let noSearchData : Driver<[SectionModel]>
         let searchData : Driver<[AppModel]>
+        
     }
     struct Builder {
-        
+        let cordinator : SearchViewCoordinator
     }
     
     let builder : Builder
@@ -106,7 +109,23 @@ class SearchViewModel : ViewModelBuilderProtocol {
             .subscribe(searchData)
             .disposed(by: disposeBag)
         
+        input.appTapAction
+            .asObservable()
+            .withLatestFrom(noSearchData) { ($0 , $1) }
+            .subscribe{ [weak self]  indexPath , datas in
+                guard let self = self else { return }
+                guard let appData = datas[1].items[indexPath[1]].returnAppModel() else { return }
+                self.builder.cordinator.openDetailView(appData: appData)
+            }
+            .disposed(by: disposeBag)
         
+        input.searchAppTapAction
+            .asObservable()
+            .subscribe(onNext: { [weak self]  data in
+                guard let self = self else { return }
+                self.builder.cordinator.openDetailView(appData: data)
+            })
+            .disposed(by: disposeBag)
         
         
         return .init(

@@ -56,7 +56,6 @@
 		7E0C8D9E27E6EA7A00B51BCB /* SearchKeywordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E0C8D9C27E6EA7A00B51BCB /* SearchKeywordTableViewCell.xib */; };
 		7E0C8DA127E704D000B51BCB /* GameAppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C8D9F27E704D000B51BCB /* GameAppTableViewCell.swift */; };
 		7E0C8DA227E704D000B51BCB /* GameAppTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E0C8DA027E704D000B51BCB /* GameAppTableViewCell.xib */; };
-		7E0C8DA527E70DAE00B51BCB /* UIImage_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C8DA427E70DAE00B51BCB /* UIImage_Extension.swift */; };
 		7E0C8DA827E70DD100B51BCB /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C8DA727E70DD100B51BCB /* ImageCacheManager.swift */; };
 		7E0C8DAB27E7180400B51BCB /* RecomendSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C8DAA27E7180400B51BCB /* RecomendSearchResponse.swift */; };
 		7E0C8DAE27E7184000B51BCB /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C8DAD27E7184000B51BCB /* AppModel.swift */; };
@@ -68,6 +67,18 @@
 		7E0C8DBC27E7E49400B51BCB /* AppTopInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E0C8DBB27E7E49400B51BCB /* AppTopInformationView.xib */; };
 		7E0C8DBE27E7E4A500B51BCB /* AppTopInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C8DBD27E7E4A500B51BCB /* AppTopInformationView.swift */; };
 		7E0C8DC027E80C3300B51BCB /* Double_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0C8DBF27E80C3300B51BCB /* Double_Extension.swift */; };
+		7E257BE727E96283007829AE /* StarSettingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E257BE627E96283007829AE /* StarSettingProtocol.swift */; };
+		7E997E8727E81D9500FB51A8 /* Int_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997E8627E81D9500FB51A8 /* Int_Extension.swift */; };
+		7E997E8A27E8313D00FB51A8 /* AppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997E8927E8313D00FB51A8 /* AppDetailViewController.swift */; };
+		7E997E8C27E8314800FB51A8 /* AppDetailViewCooridnator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997E8B27E8314800FB51A8 /* AppDetailViewCooridnator.swift */; };
+		7E997E8E27E8315100FB51A8 /* AppDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997E8D27E8315100FB51A8 /* AppDetailViewModel.swift */; };
+		7E997E9027E8315B00FB51A8 /* AppDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E997E8F27E8315B00FB51A8 /* AppDetailViewController.storyboard */; };
+		7E997E9927E8440D00FB51A8 /* VersionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997E9727E8440D00FB51A8 /* VersionTableViewCell.swift */; };
+		7E997E9A27E8440D00FB51A8 /* VersionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E997E9827E8440D00FB51A8 /* VersionTableViewCell.xib */; };
+		7E997E9C27E8495A00FB51A8 /* ReadMoreLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997E9B27E8495A00FB51A8 /* ReadMoreLabelView.swift */; };
+		7E997E9E27E8496F00FB51A8 /* ReadMoreLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E997E9D27E8496F00FB51A8 /* ReadMoreLabelView.xib */; };
+		7E997EA227E88DF300FB51A8 /* ScreenShotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997EA027E88DF300FB51A8 /* ScreenShotCollectionViewCell.swift */; };
+		7E997EA327E88DF300FB51A8 /* ScreenShotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E997EA127E88DF300FB51A8 /* ScreenShotCollectionViewCell.xib */; };
 		FB1B6CE3814E2E3837346E1F /* Pods_AppStoreCopyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C33F3265F5419839E884912 /* Pods_AppStoreCopyApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -136,7 +147,6 @@
 		7E0C8D9C27E6EA7A00B51BCB /* SearchKeywordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchKeywordTableViewCell.xib; sourceTree = "<group>"; };
 		7E0C8D9F27E704D000B51BCB /* GameAppTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAppTableViewCell.swift; sourceTree = "<group>"; };
 		7E0C8DA027E704D000B51BCB /* GameAppTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameAppTableViewCell.xib; sourceTree = "<group>"; };
-		7E0C8DA427E70DAE00B51BCB /* UIImage_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage_Extension.swift; sourceTree = "<group>"; };
 		7E0C8DA727E70DD100B51BCB /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		7E0C8DAA27E7180400B51BCB /* RecomendSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendSearchResponse.swift; sourceTree = "<group>"; };
 		7E0C8DAD27E7184000B51BCB /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
@@ -148,6 +158,18 @@
 		7E0C8DBB27E7E49400B51BCB /* AppTopInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppTopInformationView.xib; sourceTree = "<group>"; };
 		7E0C8DBD27E7E4A500B51BCB /* AppTopInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTopInformationView.swift; sourceTree = "<group>"; };
 		7E0C8DBF27E80C3300B51BCB /* Double_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double_Extension.swift; sourceTree = "<group>"; };
+		7E257BE627E96283007829AE /* StarSettingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSettingProtocol.swift; sourceTree = "<group>"; };
+		7E997E8627E81D9500FB51A8 /* Int_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int_Extension.swift; sourceTree = "<group>"; };
+		7E997E8927E8313D00FB51A8 /* AppDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewController.swift; sourceTree = "<group>"; };
+		7E997E8B27E8314800FB51A8 /* AppDetailViewCooridnator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewCooridnator.swift; sourceTree = "<group>"; };
+		7E997E8D27E8315100FB51A8 /* AppDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewModel.swift; sourceTree = "<group>"; };
+		7E997E8F27E8315B00FB51A8 /* AppDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppDetailViewController.storyboard; sourceTree = "<group>"; };
+		7E997E9727E8440D00FB51A8 /* VersionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionTableViewCell.swift; sourceTree = "<group>"; };
+		7E997E9827E8440D00FB51A8 /* VersionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VersionTableViewCell.xib; sourceTree = "<group>"; };
+		7E997E9B27E8495A00FB51A8 /* ReadMoreLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMoreLabelView.swift; sourceTree = "<group>"; };
+		7E997E9D27E8496F00FB51A8 /* ReadMoreLabelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReadMoreLabelView.xib; sourceTree = "<group>"; };
+		7E997EA027E88DF300FB51A8 /* ScreenShotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotCollectionViewCell.swift; sourceTree = "<group>"; };
+		7E997EA127E88DF300FB51A8 /* ScreenShotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenShotCollectionViewCell.xib; sourceTree = "<group>"; };
 		8417D3002AADCF37FA2C049C /* Pods-AppStoreCopyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreCopyAppTests.release.xcconfig"; path = "Target Support Files/Pods-AppStoreCopyAppTests/Pods-AppStoreCopyAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		8C33F3265F5419839E884912 /* Pods_AppStoreCopyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStoreCopyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2088A7C23A80C9C71EE73F3 /* Pods-AppStoreCopyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreCopyApp.release.xcconfig"; path = "Target Support Files/Pods-AppStoreCopyApp/Pods-AppStoreCopyApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -262,6 +284,7 @@
 		7E0C8D3F27E6D37300B51BCB /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				7E257BE527E96276007829AE /* ViewProtocol */,
 				7E0C8D4027E6D37300B51BCB /* ViewModelProtocol */,
 				7E0C8D4327E6D37300B51BCB /* BaseProtocol */,
 			);
@@ -291,6 +314,8 @@
 		7E0C8D4E27E6D39C00B51BCB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7E997E9627E843EE00FB51A8 /* Cell */,
+				7E997E8827E8312A00FB51A8 /* AppDetail */,
 				7E0C8D6727E6D53600B51BCB /* AppTap */,
 				7E0C8D6827E6D53C00B51BCB /* Arcade */,
 				7E0C8D6627E6D52B00B51BCB /* Game */,
@@ -337,8 +362,8 @@
 				7E0C8D5D27E6D4B000B51BCB /* Reactive_Extension.swift */,
 				7E0C8D5E27E6D4B000B51BCB /* UI_Extension.swift */,
 				7E0C8D5F27E6D4B000B51BCB /* Encodable_Extension.swift */,
-				7E0C8DA427E70DAE00B51BCB /* UIImage_Extension.swift */,
 				7E0C8DBF27E80C3300B51BCB /* Double_Extension.swift */,
+				7E997E8627E81D9500FB51A8 /* Int_Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -457,10 +482,58 @@
 		7E0C8DBA27E7E42E00B51BCB /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				7E0C8DBB27E7E49400B51BCB /* AppTopInformationView.xib */,
-				7E0C8DBD27E7E4A500B51BCB /* AppTopInformationView.swift */,
+				7E997E9127E842E600FB51A8 /* View */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		7E257BE527E96276007829AE /* ViewProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				7E257BE627E96283007829AE /* StarSettingProtocol.swift */,
+			);
+			path = ViewProtocol;
+			sourceTree = "<group>";
+		};
+		7E997E8827E8312A00FB51A8 /* AppDetail */ = {
+			isa = PBXGroup;
+			children = (
+				7E997E9F27E88DCE00FB51A8 /* Cell */,
+				7E997E8927E8313D00FB51A8 /* AppDetailViewController.swift */,
+				7E997E8B27E8314800FB51A8 /* AppDetailViewCooridnator.swift */,
+				7E997E8D27E8315100FB51A8 /* AppDetailViewModel.swift */,
+				7E997E8F27E8315B00FB51A8 /* AppDetailViewController.storyboard */,
+			);
+			path = AppDetail;
+			sourceTree = "<group>";
+		};
+		7E997E9127E842E600FB51A8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7E0C8DBB27E7E49400B51BCB /* AppTopInformationView.xib */,
+				7E0C8DBD27E7E4A500B51BCB /* AppTopInformationView.swift */,
+				7E997E9D27E8496F00FB51A8 /* ReadMoreLabelView.xib */,
+				7E997E9B27E8495A00FB51A8 /* ReadMoreLabelView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7E997E9627E843EE00FB51A8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7E997E9727E8440D00FB51A8 /* VersionTableViewCell.swift */,
+				7E997E9827E8440D00FB51A8 /* VersionTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		7E997E9F27E88DCE00FB51A8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7E997EA027E88DF300FB51A8 /* ScreenShotCollectionViewCell.swift */,
+				7E997EA127E88DF300FB51A8 /* ScreenShotCollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		9207BA2A82CB37A62AEA48F1 /* Frameworks */ = {
@@ -566,7 +639,11 @@
 				7E0C8DBC27E7E49400B51BCB /* AppTopInformationView.xib in Resources */,
 				7E0C8D9E27E6EA7A00B51BCB /* SearchKeywordTableViewCell.xib in Resources */,
 				7E0C8D8E27E6E5B100B51BCB /* SearchViewController.storyboard in Resources */,
+				7E997E9E27E8496F00FB51A8 /* ReadMoreLabelView.xib in Resources */,
+				7E997E9A27E8440D00FB51A8 /* VersionTableViewCell.xib in Resources */,
+				7E997EA327E88DF300FB51A8 /* ScreenShotCollectionViewCell.xib in Resources */,
 				7E0C8D9027E6E70300B51BCB /* AppTapViewController.storyboard in Resources */,
+				7E997E9027E8315B00FB51A8 /* AppDetailViewController.storyboard in Resources */,
 				7E0C8DB227E75E5700B51BCB /* SearchAppVerticalTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -653,17 +730,23 @@
 				7E0C8D7427E6D6FA00B51BCB /* ArcadeViewController.swift in Sources */,
 				7E0C8D5427E6D3DD00B51BCB /* AppCoordinator.swift in Sources */,
 				7E0C8D4A27E6D37300B51BCB /* ViewModelProtocol.swift in Sources */,
+				7E997E8E27E8315100FB51A8 /* AppDetailViewModel.swift in Sources */,
 				7E0C8DC027E80C3300B51BCB /* Double_Extension.swift in Sources */,
 				7E0C8DA827E70DD100B51BCB /* ImageCacheManager.swift in Sources */,
 				7E0C8D7A27E6D71600B51BCB /* GameViewController.swift in Sources */,
 				7E0C8D7627E6D70100B51BCB /* ArcadeViewModel.swift in Sources */,
 				7E0C8DAE27E7184000B51BCB /* AppModel.swift in Sources */,
 				7E0C8DB527E766EC00B51BCB /* ImageDirection_Enum.swift in Sources */,
+				7E997E9C27E8495A00FB51A8 /* ReadMoreLabelView.swift in Sources */,
+				7E257BE727E96283007829AE /* StarSettingProtocol.swift in Sources */,
+				7E997E8C27E8314800FB51A8 /* AppDetailViewCooridnator.swift in Sources */,
 				7E0C8D8227E6D73600B51BCB /* SearchViewModel.swift in Sources */,
+				7E997E8A27E8313D00FB51A8 /* AppDetailViewController.swift in Sources */,
 				7E0C8DB127E75E5700B51BCB /* SearchAppVerticalTableViewCell.swift in Sources */,
 				7E0C8D5627E6D3DD00B51BCB /* BaseCoordinator.swift in Sources */,
 				7E0C8D5927E6D47900B51BCB /* NetworkAPI.swift in Sources */,
 				7E0C8D6027E6D4B000B51BCB /* String_Extension.swift in Sources */,
+				7E997EA227E88DF300FB51A8 /* ScreenShotCollectionViewCell.swift in Sources */,
 				7E0C8D7C27E6D71C00B51BCB /* GameViewModel.swift in Sources */,
 				7E0C8D5527E6D3DD00B51BCB /* TabBarCoordinator.swift in Sources */,
 				7E0C8D8A27E6D76600B51BCB /* TodayViewModel.swift in Sources */,
@@ -680,18 +763,19 @@
 				7E0C8D8627E6D74D00B51BCB /* TodayViewController.swift in Sources */,
 				7E0C8D6127E6D4B000B51BCB /* Color_Extension.swift in Sources */,
 				7E0C8D6327E6D4B000B51BCB /* UI_Extension.swift in Sources */,
+				7E997E9927E8440D00FB51A8 /* VersionTableViewCell.swift in Sources */,
 				7E0C8D4D27E6D37300B51BCB /* CellSettingProtocol.swift in Sources */,
 				7E0C8D0927E6D19700B51BCB /* AppDelegate.swift in Sources */,
 				7E0C8DB827E76A5800B51BCB /* SearchAppHoriziontalTableViewCell.swift in Sources */,
 				7E0C8D7827E6D70D00B51BCB /* ArcadeViewCoordinator.swift in Sources */,
 				7E0C8DAB27E7180400B51BCB /* RecomendSearchResponse.swift in Sources */,
 				7E0C8D0B27E6D19700B51BCB /* SceneDelegate.swift in Sources */,
+				7E997E8727E81D9500FB51A8 /* Int_Extension.swift in Sources */,
 				7E0C8D3D27E6D2E100B51BCB /* ErrorTracker.swift in Sources */,
 				7E0C8D7027E6D58700B51BCB /* AppTapViewModel.swift in Sources */,
 				7E0C8D8C27E6E4AA00B51BCB /* StoryBoardAble.swift in Sources */,
 				7E0C8D6D27E6D57A00B51BCB /* AppTapViewCoordinator.swift in Sources */,
 				7E0C8D8027E6D72F00B51BCB /* SearchViewController.swift in Sources */,
-				7E0C8DA527E70DAE00B51BCB /* UIImage_Extension.swift in Sources */,
 				7E0C8DBE27E7E4A500B51BCB /* AppTopInformationView.swift in Sources */,
 				7E0C8D9D27E6EA7A00B51BCB /* SearchKeywordTableViewCell.swift in Sources */,
 				7E0C8D8827E6D75800B51BCB /* TodayViewCoordinator.swift in Sources */,

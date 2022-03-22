@@ -29,6 +29,8 @@ class SearchKeywordTableViewCell: UITableViewCell , CellSettingProtocl {
     
     func uiSetting() {
         backgroundColor = .primaryColorReverse
+        selectionStyle = .none
+        selectedBackgroundView = .none
     }
 
     func itemSetting(item: String) {

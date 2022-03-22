@@ -13,12 +13,12 @@ class SearchAppVerticalTableViewCell: UITableViewCell , CellSettingProtocl {
     static var id: String { NSStringFromClass(Self.self).components(separatedBy: ".").last ?? "" }
 
     @IBOutlet weak var appTopInformationView: AppTopInformationView!
-    @IBOutlet weak var ScreenShotImageView1: UIImageView!
-    @IBOutlet weak var ScreenShotImageView2: UIImageView!
-    @IBOutlet weak var ScreenShotImageView3: UIImageView!
+    @IBOutlet weak var screenShotImageView1: UIImageView!
+    @IBOutlet weak var screenShotImageView2: UIImageView!
+    @IBOutlet weak var screenShotImageView3: UIImageView!
     
     @IBOutlet weak var imageAspect: NSLayoutConstraint!
-    lazy var screenShotImages : [UIImageView] = [ScreenShotImageView1,ScreenShotImageView2,ScreenShotImageView3]
+    lazy var screenShotImages : [UIImageView] = [screenShotImageView1,screenShotImageView2,screenShotImageView3]
     
     
     var item : AppModel?
@@ -43,7 +43,8 @@ class SearchAppVerticalTableViewCell: UITableViewCell , CellSettingProtocl {
             $0.layer.cornerRadius = 8
         }
      
-       
+        selectionStyle = .none
+        selectedBackgroundView = .none
     }
     
     func itemSetting(item : AppModel) {

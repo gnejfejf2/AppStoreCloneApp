@@ -33,9 +33,6 @@ class SuperViewControllerSetting<T> : UIViewController , ViewSettingProtocol , S
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .primaryColorReverse
-        navigationController?.navigationBar.topItem?.backButtonTitle = ""
-       
-      
         
         uiDrawing()
         uiSetting()

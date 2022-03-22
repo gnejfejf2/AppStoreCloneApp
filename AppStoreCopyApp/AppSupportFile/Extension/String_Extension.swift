@@ -30,8 +30,6 @@ extension String{
         let width = Int(imageSizeString?.first ?? "") ?? 0
         let height = Int(imageSizeString?.last?.filter{ $0.isNumber } ?? "") ?? 0
         
-        print(width)
-        print(height)
         if(width > height){
             return .Horiziontal
         }else{

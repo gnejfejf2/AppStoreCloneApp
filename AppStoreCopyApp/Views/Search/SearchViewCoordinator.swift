@@ -11,14 +11,21 @@ class SearchViewCoordinator: BaseCoordinator {
     
     
     override func start() {
-        let viewModel = SearchViewModel(builder: .init())
+        let viewModel = SearchViewModel(builder: .init(
+            cordinator: self
+        ))
         let viewController = SearchViewController.instantiate()
         viewController.viewModel = viewModel
         let vc = UINavigationController(rootViewController: viewController)
-       
-        self.navigationController = vc
+        navigationController = vc
         
     }
   
+    func openDetailView(appData : AppModel){
+        let coordinator = AppDetailViewCoordinator(navigationController: navigationController)
+        coordinator.appData = appData
+        coordinator.start()
+        
+    }
     
 }

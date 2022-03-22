@@ -12,11 +12,11 @@ extension Double {
     
     func customRounds(count : Int) -> Double{
         
-        var pow = pow(Double(10), Double(count))
-        
-        var upPow = (self * pow).rounded()
-        
-        
+        if(count == 0){
+            return self
+        }
+        let pow = pow(Double(10), Double(count))
+        let upPow = (self * pow).rounded()
         return upPow / pow
     }
     

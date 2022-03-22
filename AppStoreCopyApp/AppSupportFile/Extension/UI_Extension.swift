@@ -12,7 +12,38 @@ extension UIImageView {
     func resizeImage(newWidth: CGFloat){
         self.image = self.image?.resize(newWidth: newWidth)
     }
+
+    func setImageUrl(_ url: String) {
+        
+        let cacheKey = NSString(string: url) // 캐시에 사용될 Key 값
+        
+        if let cachedImage = ImageCacheManager.shared.object(forKey: cacheKey) { // 해당 Key 에 캐시이미지가 저장되어 있으면 이미지를 사용
+            self.image = cachedImage
+            return
+        }
+        
+        DispatchQueue.global(qos: .background).async {
+            if let imageUrl = URL(string: url) {
+                URLSession.shared.dataTask(with: imageUrl) { (data, res, err) in
+                    if let _ = err {
+                        DispatchQueue.main.async {
+                            self.image = UIImage()
+                        }
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        if let data = data, let image = UIImage(data: data) {
+                            ImageCacheManager.shared.setObject(image, forKey: cacheKey) // 다운로드된 이미지를 캐시에 저장
+                            self.image = image
+                        }
+                    }
+                }.resume()
+            }
+        }
+    }
+    
 }
+
 
 extension UIImage {
     func resize(newWidth: CGFloat) -> UIImage {
@@ -27,3 +58,16 @@ extension UIImage {
         return renderImage
     }
 }
+extension UILabel {
+    func setLinespace(spacing: CGFloat) {
+        if let text = self.text {
+            let attributeString = NSMutableAttributedString(string: text)
+            let style = NSMutableParagraphStyle()
+            style.lineSpacing = spacing
+            attributeString.addAttribute(NSAttributedString.Key.paragraphStyle, value: style, range: NSMakeRange(0, attributeString.length))
+            self.attributedText = attributeString
+            
+        }
+    }
+}
+

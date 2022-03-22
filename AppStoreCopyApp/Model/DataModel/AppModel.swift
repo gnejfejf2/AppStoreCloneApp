@@ -11,6 +11,8 @@ import Foundation
 struct AppModel: Codable {
     var screenshotUrls : [String]
     var artworkUrl60 : String
+    var artworkUrl100 : String
+    var artworkUrl512 : String
     var advisories : [String]
     var minimumOsVersion : String
     var trackCensoredName : String
@@ -18,6 +20,10 @@ struct AppModel: Codable {
     var trackName : String
     var sellerName : String
     var description : String
+    var primaryGenreName : String
     var genres : [String]
     var version : String
+    var averageUserRating : Double
+    var userRatingCount : Int
+    var releaseNotes : String?
 }

@@ -15,14 +15,22 @@ enum SectionItem {
     case Keyword(keyword: String)
     case App(appModel: AppModel)
     
-    func returnKeyword() -> String{
+    func returnData() -> String{
         switch self {
         case .Keyword(let keyword):
             return keyword
         case .App(let appModel):
             return appModel.trackName
         }
-        
+    }
+    
+    func returnAppModel() -> AppModel?{
+        switch self {
+        case .Keyword:
+            return nil
+        case .App(let appModel):
+            return appModel
+        }
         
     }
     

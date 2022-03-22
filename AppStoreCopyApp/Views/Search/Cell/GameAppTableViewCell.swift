@@ -30,13 +30,15 @@ class GameAppTableViewCell: UITableViewCell , CellSettingProtocl{
     
     func uiSetting() {
         backgroundColor = .primaryColorReverse
+        selectionStyle = .none
+        selectedBackgroundView = .none
     }
     
     func itemSetting(item : AppModel) {
         self.item = item
         guard let item = self.item else { return }
         appTopInformationView.itemSetting(item: item)
-        appTopInformationView.StatStackView.isHidden = true
+        appTopInformationView.statStackView.isHidden = true
     }
     
 }

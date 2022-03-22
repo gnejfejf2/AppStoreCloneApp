@@ -31,16 +31,10 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
             case .Keyword(let keyword) :
                 let cell = tableView.dequeueReusableCell(withIdentifier: SearchKeywordTableViewCell.id, for: indexPath) as! SearchKeywordTableViewCell
                 cell.itemSetting(item: keyword)
-                cell.selectionStyle = .none
-                cell.selectedBackgroundView = .none
-                
                 return cell
             case .App(let keyword) :
                 let cell = tableView.dequeueReusableCell(withIdentifier: GameAppTableViewCell.id, for: indexPath) as! GameAppTableViewCell
                 cell.itemSetting(item: keyword)
-                
-                cell.selectionStyle = .none
-                cell.selectedBackgroundView = .none
                 return cell
             }
         }, titleForHeaderInSection: { dataSource, index in
@@ -50,22 +44,24 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
     
     private var viewDidLoad = PublishSubject<Void>()
     
- 
-    
-    override func uiDrawing() {
+    override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "검색"
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    
+    override func uiDrawing() {
+        
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-       
+        
         noSearchTableView.register(UINib(nibName: SearchKeywordTableViewCell.id, bundle: nil), forCellReuseIdentifier: SearchKeywordTableViewCell.id)
         noSearchTableView.register(UINib(nibName: GameAppTableViewCell.id, bundle: nil), forCellReuseIdentifier: GameAppTableViewCell.id)
         noSearchTableView.contentInsetAdjustmentBehavior = .never
         
-        
         searchTableView.register(UINib(nibName: SearchAppVerticalTableViewCell.id, bundle: nil), forCellReuseIdentifier: SearchAppVerticalTableViewCell.id)
         searchTableView.register(UINib(nibName: SearchAppHoriziontalTableViewCell.id, bundle: nil), forCellReuseIdentifier: SearchAppHoriziontalTableViewCell.id)
-       
+        
         searchTableView.isHidden = true
         searchTableView.contentInsetAdjustmentBehavior = .never
     }
@@ -80,36 +76,46 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
     
     override func viewModelBinding() {
         let searchActionInput = PublishSubject<String?>()
-
+        
         searchActionInput
             .asDriverOnErrorNever()
             .drive(searchController.searchBar.rx.text)
             .disposed(by: disposeBag)
-
-
+        
         let searchActionEditing = searchController.searchBar.searchTextField.rx.controlEvent(.editingDidEndOnExit)
             .map{ [weak self] event -> Void in
                 guard let self = self else { return }
                 self.searchController.searchBar.resignFirstResponder()
             }
             .withLatestFrom(searchController.searchBar.rx.text)
-
-
+        
+        
         let searchAction = Observable.of(searchActionInput , searchActionEditing)
             .merge()
             .asDriverOnErrorNever()
-
-
+        
+        
         let cancelAction = searchController.searchBar.rx.cancelButtonClicked
             .asDriverOnErrorNever()
-
-
+        
+        let appTapAction = noSearchTableView.rx
+            .itemSelected
+            .filter{ $0[0] == 1 }
+            .asDriverOnErrorNever()
+        
+        let searchAppTapAction = searchTableView.rx
+            .modelSelected(AppModel.self)
+            .asDriverOnErrorNever()
+        
+        
         let output = viewModel.transform(input: .init(
             viewDidLoad: viewDidLoad.asDriverOnErrorNever(),
             searchAction: searchAction,
-            cancelAction : cancelAction
+            cancelAction : cancelAction,
+            appTapAction : appTapAction,
+            searchAppTapAction : searchAppTapAction
         ))
-
+        
         noSearchTableView.rx
             .itemSelected
             .filter{ $0[0] == 0 }
@@ -117,15 +123,15 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
             .subscribe{ [weak self]  indexPath , datas in
                 guard let self = self else { return }
                 self.searchController.isActive = true
-                self.searchController.searchBar.rx.text.onNext(datas[0].items[indexPath[1]].returnKeyword())
-                searchActionInput.onNext(datas[0].items[indexPath[1]].returnKeyword())
+                self.searchController.searchBar.rx.text.onNext(datas[0].items[indexPath[1]].returnData())
+                searchActionInput.onNext(datas[0].items[indexPath[1]].returnData())
             }
             .disposed(by: disposeBag)
-
+        
         output.noSearchData
             .drive(noSearchTableView.rx.items(dataSource: sectionTableDatasource))
             .disposed(by: disposeBag)
-
+        
         output.searchData
             .drive(searchTableView.rx.items){(tv , row , item) in
                 if item.screenshotUrls[0].imageDirectionReturn() == .Vertical {
@@ -134,33 +140,28 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
                     return cell
                 }else{
                     let cell = tv.dequeueReusableCell(withIdentifier: SearchAppHoriziontalTableViewCell.id) as! SearchAppHoriziontalTableViewCell
-
+                    
                     cell.itemSetting(item: item)
                     return cell
                 }
-
+                
             }
             .disposed(by: disposeBag)
-
+        
         output.searchData
-
             .map{ $0.count == 0 }
             .drive(searchTableView.rx.isHidden)
             .disposed(by: disposeBag)
-
-
-
-
+        
+        
+        
+        
         viewDidLoad.onNext(())
     }
-//
-//
 }
 
+
 extension SearchViewController : UITableViewDelegate {
-    
-    
-    
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if(tableView == noSearchTableView){
@@ -168,11 +169,8 @@ extension SearchViewController : UITableViewDelegate {
             (view as! UITableViewHeaderFooterView).textLabel?.textColor = .primaryColor
             (view as! UITableViewHeaderFooterView).textLabel?.sizeToFit()
         }
-        
-        
-        
     }
-   
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if(tableView == noSearchTableView){
             return 40
@@ -180,10 +178,9 @@ extension SearchViewController : UITableViewDelegate {
             return 0
         }
     }
-
+    
     func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
         view.backgroundColor = .primaryColorReverse
-     }
-
+    }
     
 }
