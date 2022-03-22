@@ -96,10 +96,13 @@ class AppDetailViewController : SuperViewControllerSetting<AppDetailViewModel> ,
         readMoreLabelView.itemSetting(item: appData.releaseNotes)
         ageLabel.text = appData.contentAdvisoryRating
         minimumVersionLabel.text = appData.minimumOsVersion
-        
+        versionTimeLabel.text = appData.currentVersionReleaseDate.distanceTimeCal()
         appStarLabel.text = String(appData.averageUserRating.customRounds(count: 1))
         starSetting(item: appData)
         appStarCountLabel.text = appData.userRatingCount.countToString()
+        
+        
+        
     }
     
     

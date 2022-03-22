@@ -13,7 +13,6 @@ class SearchViewModel : ViewModelBuilderProtocol {
     
     struct Input {
         let viewDidLoad : Driver<Void>
-//        let searchKeyword : Driver<String>
         let searchAction : Driver<String?>
         let cancelAction : Driver<Void>
         let appTapAction : Driver<IndexPath>
@@ -23,7 +22,7 @@ class SearchViewModel : ViewModelBuilderProtocol {
     struct Output {
         let noSearchData : Driver<[SectionModel]>
         let searchData : Driver<[AppModel]>
-        
+        let searchAction : Driver<Bool>
     }
     struct Builder {
         let cordinator : SearchViewCoordinator
@@ -43,7 +42,7 @@ class SearchViewModel : ViewModelBuilderProtocol {
     func transform(input: Input) -> Output {
         let noSearchData = BehaviorSubject<[SectionModel]>(value: [.Keyword(items: []),.App(items: [])])
         let searchData = PublishSubject<[AppModel]>()
-                                                        
+        let searchAction = PublishSubject<Bool>()
                                                              
                                                         
         
@@ -88,7 +87,7 @@ class SearchViewModel : ViewModelBuilderProtocol {
 
         
             
-        input.searchAction
+        let searchResult = input.searchAction
             .asObservable()
             .filter{ $0 != nil }
             .flatMap { [weak self]  keyword -> Observable<RecomendSearchResponse> in
@@ -98,16 +97,32 @@ class SearchViewModel : ViewModelBuilderProtocol {
                         return .never()
                     }
             }
+            .share()
+            
+        searchResult
             .map{ $0.results }
             .subscribe(searchData)
             .disposed(by: disposeBag)
         
+        searchResult
+            .map{ $0.results.count != 0 }
+            .subscribe(searchAction)
+            .disposed(by: disposeBag)
         
-        input.cancelAction
+        let cancelAction = input.cancelAction
             .asObservable()
             .map{ _ -> [AppModel] in return []  }
+            .share()
+        
+        cancelAction
             .subscribe(searchData)
             .disposed(by: disposeBag)
+        
+        cancelAction
+            .map{ _ in return true  }
+            .subscribe(searchAction)
+            .disposed(by: disposeBag)
+        
         
         input.appTapAction
             .asObservable()
@@ -130,7 +145,8 @@ class SearchViewModel : ViewModelBuilderProtocol {
         
         return .init(
             noSearchData: noSearchData.asDriverOnErrorNever(),
-            searchData : searchData.asDriverOnErrorNever()
+            searchData : searchData.asDriverOnErrorNever(),
+            searchAction: searchAction.asDriverOnErrorNever()
         )
     }
     

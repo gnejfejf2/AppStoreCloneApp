@@ -15,6 +15,7 @@ struct AppModel: Codable {
     var artworkUrl512 : String
     var advisories : [String]
     var minimumOsVersion : String
+    var currentVersionReleaseDate : String
     var trackCensoredName : String
     var contentAdvisoryRating : String
     var trackName : String

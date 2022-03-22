@@ -17,6 +17,7 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
     
     @IBOutlet weak var searchTableView: UITableView!
     
+    @IBOutlet weak var noResultLabel: UILabel!
     var searchController = UISearchController(searchResultsController: nil).then{
         $0.searchBar.placeholder = "게임, 앱, 스토리 등"
         $0.searchBar.autocapitalizationType = .none
@@ -140,11 +141,9 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
                     return cell
                 }else{
                     let cell = tv.dequeueReusableCell(withIdentifier: SearchAppHoriziontalTableViewCell.id) as! SearchAppHoriziontalTableViewCell
-                    
                     cell.itemSetting(item: item)
                     return cell
                 }
-                
             }
             .disposed(by: disposeBag)
         
@@ -153,7 +152,9 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
             .drive(searchTableView.rx.isHidden)
             .disposed(by: disposeBag)
         
-        
+        output.searchAction
+            .drive(noResultLabel.rx.isHidden)
+            .disposed(by: disposeBag)
         
         
         viewDidLoad.onNext(())
