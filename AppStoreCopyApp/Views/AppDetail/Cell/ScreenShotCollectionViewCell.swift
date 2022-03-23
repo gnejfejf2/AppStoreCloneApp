@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SnapKit
+
 
 class ScreenShotCollectionViewCell: UICollectionViewCell {
 
@@ -22,6 +24,8 @@ class ScreenShotCollectionViewCell: UICollectionViewCell {
 
     
     func uiSetting() {
+      
+        
         backgroundColor = .primaryColorReverse
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 10

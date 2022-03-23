@@ -20,7 +20,10 @@ class ScreenShotViewController : SuperViewControllerSetting<ScreenShotViewModel>
     
     override func uiSetting() {
         screenShotCollectionView.register(UINib(nibName: ScreenShotCollectionViewCell.id, bundle: nil), forCellWithReuseIdentifier: ScreenShotCollectionViewCell.id)
-        screenShotCollectionView.delegate = self
+        
+        screenShotCollectionView.rx
+            .setDelegate(self)
+            .disposed(by: disposeBag)
     }
     
     override func viewModelBinding() {
@@ -33,6 +36,7 @@ class ScreenShotViewController : SuperViewControllerSetting<ScreenShotViewModel>
         
         output.screenShotURLs
             .drive(screenShotCollectionView.rx.items(cellIdentifier: ScreenShotCollectionViewCell.id, cellType: ScreenShotCollectionViewCell.self)) { index, item, cell in
+                
                 cell.itemSetting(item: item)
             }
             .disposed(by: disposeBag)
@@ -45,7 +49,13 @@ class ScreenShotViewController : SuperViewControllerSetting<ScreenShotViewModel>
     
 }
 
-extension ScreenShotViewController : UICollectionViewDelegate {
+extension ScreenShotViewController : UICollectionViewDelegate , UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width - 20, height: (UIScreen.main.bounds.width - 20) * 16 / 9)
+    }
+    
+    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         guard let layout = screenShotCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
          
