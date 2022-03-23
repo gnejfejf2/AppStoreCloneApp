@@ -251,6 +251,7 @@
 				7E0C8D1127E6D19800B51BCB /* Assets.xcassets */,
 				7E0C8D1327E6D19800B51BCB /* LaunchScreen.storyboard */,
 				7E0C8D3827E6D1AA00B51BCB /* AppSupportFile */,
+				7E33626427EBE21D002E49F1 /* CommonCell */,
 				7E0C8DBA27E7E42E00B51BCB /* Components */,
 				7E0C8D4F27E6D3A600B51BCB /* Model */,
 				7E0C8DA627E70DC900B51BCB /* Manager */,
@@ -539,10 +540,17 @@
 			path = ScreenShot;
 			sourceTree = "<group>";
 		};
+		7E33626427EBE21D002E49F1 /* CommonCell */ = {
+			isa = PBXGroup;
+			children = (
+				7E997E9F27E88DCE00FB51A8 /* ScreenShot */,
+			);
+			path = CommonCell;
+			sourceTree = "<group>";
+		};
 		7E997E8827E8312A00FB51A8 /* AppDetail */ = {
 			isa = PBXGroup;
 			children = (
-				7E997E9F27E88DCE00FB51A8 /* Cell */,
 				7E997E8927E8313D00FB51A8 /* AppDetailViewController.swift */,
 				7E997E8B27E8314800FB51A8 /* AppDetailViewCooridnator.swift */,
 				7E997E8D27E8315100FB51A8 /* AppDetailViewModel.swift */,
@@ -570,13 +578,13 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		7E997E9F27E88DCE00FB51A8 /* Cell */ = {
+		7E997E9F27E88DCE00FB51A8 /* ScreenShot */ = {
 			isa = PBXGroup;
 			children = (
 				7E997EA027E88DF300FB51A8 /* ScreenShotCollectionViewCell.swift */,
 				7E997EA127E88DF300FB51A8 /* ScreenShotCollectionViewCell.xib */,
 			);
-			path = Cell;
+			path = ScreenShot;
 			sourceTree = "<group>";
 		};
 		9207BA2A82CB37A62AEA48F1 /* Frameworks */ = {
