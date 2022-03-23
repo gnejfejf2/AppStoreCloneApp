@@ -25,7 +25,7 @@ class SearchViewModel : ViewModelBuilderProtocol {
         let searchAction : Driver<Bool>
     }
     struct Builder {
-        let cordinator : SearchViewCoordinator
+        let coordinator : SearchViewCoordinator
     }
     
     let builder : Builder
@@ -130,7 +130,7 @@ class SearchViewModel : ViewModelBuilderProtocol {
             .subscribe{ [weak self]  indexPath , datas in
                 guard let self = self else { return }
                 guard let appData = datas[1].items[indexPath[1]].returnAppModel() else { return }
-                self.builder.cordinator.openDetailView(appData: appData)
+                self.builder.coordinator.openDetailView(appData: appData)
             }
             .disposed(by: disposeBag)
         
@@ -138,7 +138,7 @@ class SearchViewModel : ViewModelBuilderProtocol {
             .asObservable()
             .subscribe(onNext: { [weak self]  data in
                 guard let self = self else { return }
-                self.builder.cordinator.openDetailView(appData: data)
+                self.builder.coordinator.openDetailView(appData: data)
             })
             .disposed(by: disposeBag)
         

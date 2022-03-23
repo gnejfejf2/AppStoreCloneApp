@@ -27,6 +27,13 @@ class AppDetailViewCoordinator: BaseCoordinator {
        
     }
     
+    func screenShotView(appData : AppModel , selectIndex : Int){
+        let coordinator = ScreenShotViewCoordinator(navigationController: navigationController)
+        coordinator.appData = appData
+        coordinator.selectIndex = selectIndex
+        coordinator.start()
+    }
+    
     func versionHistoryView(appData : AppModel){
         let coordinator = VersionListViewCoordinator(navigationController: navigationController)
         coordinator.appData = appData

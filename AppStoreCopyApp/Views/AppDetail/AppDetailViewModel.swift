@@ -13,6 +13,7 @@ class AppDetailViewModel : ViewModelBuilderProtocol {
     
     struct Input {
         let versionHistoryAction : Driver<UITapGestureRecognizer>
+        let screenShotClickAction : Driver<IndexPath>
     }
     
     struct Output {
@@ -43,6 +44,14 @@ class AppDetailViewModel : ViewModelBuilderProtocol {
             .drive{ [weak self] item in
                 guard let self = self else { return }
                 self.builder.coordinator.versionHistoryView(appData : item)
+            }
+            .disposed(by: disposeBag)
+        
+        input.screenShotClickAction
+            .withLatestFrom(appData.asDriverOnErrorNever()){ ($0 , $1) }
+            .drive{ [weak self] (index , item) in
+                guard let self = self else { return }
+                self.builder.coordinator.screenShotView(appData: item, selectIndex: index[1])
             }
             .disposed(by: disposeBag)
         

@@ -66,6 +66,9 @@ class VersionTableViewCell : UITableViewCell , CellSettingProtocl {
     }
     
     func uiSetting() {
+        selectionStyle = .none
+        selectedBackgroundView = .none
+        
         contentView.addSubview(versionLabel)
         contentView.addSubview(versionDateLable)
         contentView.addSubview(relaseLabel)

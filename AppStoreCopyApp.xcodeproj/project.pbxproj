@@ -74,6 +74,10 @@
 		7E33625327E9B416002E49F1 /* VersionListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E33625227E9B416002E49F1 /* VersionListViewController.storyboard */; };
 		7E33625727EA16EB002E49F1 /* VersionSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E33625627EA16EB002E49F1 /* VersionSectionModel.swift */; };
 		7E33625927EA21B0002E49F1 /* VersionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E33625827EA21B0002E49F1 /* VersionModel.swift */; };
+		7E33625C27EB2CFB002E49F1 /* ScreenShotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E33625B27EB2CFB002E49F1 /* ScreenShotViewController.swift */; };
+		7E33625E27EB2D03002E49F1 /* ScrennShotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E33625D27EB2D03002E49F1 /* ScrennShotViewModel.swift */; };
+		7E33626027EB2D0D002E49F1 /* ScreenShotViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E33625F27EB2D0D002E49F1 /* ScreenShotViewCoordinator.swift */; };
+		7E33626227EB2DCA002E49F1 /* ScreenShotViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E33626127EB2DCA002E49F1 /* ScreenShotViewController.storyboard */; };
 		7E997E8727E81D9500FB51A8 /* Int_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997E8627E81D9500FB51A8 /* Int_Extension.swift */; };
 		7E997E8A27E8313D00FB51A8 /* AppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997E8927E8313D00FB51A8 /* AppDetailViewController.swift */; };
 		7E997E8C27E8314800FB51A8 /* AppDetailViewCooridnator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997E8B27E8314800FB51A8 /* AppDetailViewCooridnator.swift */; };
@@ -170,6 +174,10 @@
 		7E33625227E9B416002E49F1 /* VersionListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VersionListViewController.storyboard; sourceTree = "<group>"; };
 		7E33625627EA16EB002E49F1 /* VersionSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionSectionModel.swift; sourceTree = "<group>"; };
 		7E33625827EA21B0002E49F1 /* VersionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionModel.swift; sourceTree = "<group>"; };
+		7E33625B27EB2CFB002E49F1 /* ScreenShotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotViewController.swift; sourceTree = "<group>"; };
+		7E33625D27EB2D03002E49F1 /* ScrennShotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrennShotViewModel.swift; sourceTree = "<group>"; };
+		7E33625F27EB2D0D002E49F1 /* ScreenShotViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotViewCoordinator.swift; sourceTree = "<group>"; };
+		7E33626127EB2DCA002E49F1 /* ScreenShotViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ScreenShotViewController.storyboard; sourceTree = "<group>"; };
 		7E997E8627E81D9500FB51A8 /* Int_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int_Extension.swift; sourceTree = "<group>"; };
 		7E997E8927E8313D00FB51A8 /* AppDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewController.swift; sourceTree = "<group>"; };
 		7E997E8B27E8314800FB51A8 /* AppDetailViewCooridnator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewCooridnator.swift; sourceTree = "<group>"; };
@@ -324,6 +332,7 @@
 		7E0C8D4E27E6D39C00B51BCB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7E33625A27EB2CE8002E49F1 /* ScreenShot */,
 				7E33624B27E9ABE4002E49F1 /* VersionList */,
 				7E997E8827E8312A00FB51A8 /* AppDetail */,
 				7E0C8D6727E6D53600B51BCB /* AppTap */,
@@ -519,6 +528,17 @@
 			path = VersionList;
 			sourceTree = "<group>";
 		};
+		7E33625A27EB2CE8002E49F1 /* ScreenShot */ = {
+			isa = PBXGroup;
+			children = (
+				7E33625B27EB2CFB002E49F1 /* ScreenShotViewController.swift */,
+				7E33625D27EB2D03002E49F1 /* ScrennShotViewModel.swift */,
+				7E33625F27EB2D0D002E49F1 /* ScreenShotViewCoordinator.swift */,
+				7E33626127EB2DCA002E49F1 /* ScreenShotViewController.storyboard */,
+			);
+			path = ScreenShot;
+			sourceTree = "<group>";
+		};
 		7E997E8827E8312A00FB51A8 /* AppDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,6 +674,7 @@
 			files = (
 				7E0C8D1527E6D19800B51BCB /* LaunchScreen.storyboard in Resources */,
 				7E0C8D9427E6E73C00B51BCB /* ArcadeViewController.storyboard in Resources */,
+				7E33626227EB2DCA002E49F1 /* ScreenShotViewController.storyboard in Resources */,
 				7E0C8D1227E6D19800B51BCB /* Assets.xcassets in Resources */,
 				7E0C8DB927E76A5800B51BCB /* SearchAppHoriziontalTableViewCell.xib in Resources */,
 				7E0C8DA227E704D000B51BCB /* GameAppTableViewCell.xib in Resources */,
@@ -759,6 +780,7 @@
 				7E33625127E9AEB7002E49F1 /* VersionListViewCoordinator.swift in Sources */,
 				7E0C8DA827E70DD100B51BCB /* ImageCacheManager.swift in Sources */,
 				7E0C8D7A27E6D71600B51BCB /* GameViewController.swift in Sources */,
+				7E33625C27EB2CFB002E49F1 /* ScreenShotViewController.swift in Sources */,
 				7E0C8D7627E6D70100B51BCB /* ArcadeViewModel.swift in Sources */,
 				7E0C8DAE27E7184000B51BCB /* AppModel.swift in Sources */,
 				7E0C8DB527E766EC00B51BCB /* ImageDirection_Enum.swift in Sources */,
@@ -800,11 +822,13 @@
 				7E0C8D0B27E6D19700B51BCB /* SceneDelegate.swift in Sources */,
 				7E997E8727E81D9500FB51A8 /* Int_Extension.swift in Sources */,
 				7E0C8D3D27E6D2E100B51BCB /* ErrorTracker.swift in Sources */,
+				7E33626027EB2D0D002E49F1 /* ScreenShotViewCoordinator.swift in Sources */,
 				7E0C8D7027E6D58700B51BCB /* AppTapViewModel.swift in Sources */,
 				7E0C8D8C27E6E4AA00B51BCB /* StoryBoardAble.swift in Sources */,
 				7E0C8D6D27E6D57A00B51BCB /* AppTapViewCoordinator.swift in Sources */,
 				7E0C8D8027E6D72F00B51BCB /* SearchViewController.swift in Sources */,
 				7E0C8DBE27E7E4A500B51BCB /* AppTopInformationView.swift in Sources */,
+				7E33625E27EB2D03002E49F1 /* ScrennShotViewModel.swift in Sources */,
 				7E0C8D9D27E6EA7A00B51BCB /* SearchKeywordTableViewCell.swift in Sources */,
 				7E0C8D8827E6D75800B51BCB /* TodayViewCoordinator.swift in Sources */,
 				7E0C8D8427E6D74000B51BCB /* SearchViewCoordinator.swift in Sources */,

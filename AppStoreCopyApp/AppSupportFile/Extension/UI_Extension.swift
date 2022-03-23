@@ -41,7 +41,7 @@ extension UIImageView {
             }
         }
     }
-    
+   
 }
 
 
@@ -57,6 +57,8 @@ extension UIImage {
         }
         return renderImage
     }
+    
+   
 }
 extension UILabel {
     func setLinespace(spacing: CGFloat) {

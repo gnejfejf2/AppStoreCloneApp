@@ -12,7 +12,7 @@ class SearchViewCoordinator: BaseCoordinator {
     
     override func start() {
         let viewModel = SearchViewModel(builder: .init(
-            cordinator: self
+            coordinator: self
         ))
         let viewController = SearchViewController.instantiate()
         viewController.viewModel = viewModel

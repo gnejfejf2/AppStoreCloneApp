@@ -66,9 +66,14 @@ class AppDetailViewController : SuperViewControllerSetting<AppDetailViewModel> ,
             .when(.recognized)
             .asDriverOnErrorNever()
         
+        let screenShotClickAction = screenShotCollectionView
+            .rx.itemSelected
+            .asDriverOnErrorNever()
+        
         
         let output = viewModel.transform(input: .init(
-            versionHistoryAction : versionHistoryAction
+            versionHistoryAction : versionHistoryAction ,
+            screenShotClickAction : screenShotClickAction
         ))
         
       
