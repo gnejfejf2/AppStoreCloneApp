@@ -59,12 +59,12 @@ class VersionTableViewCell : UITableViewCell , CellSettingProtocl {
         delegate = nil
     }
     
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        relaseLabel.numberOfLines = 3
-//        moreButton.isHidden = false
-//        delegate = nil
-//    }
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        relaseLabel.numberOfLines = 3
+        moreButton.isHidden = false
+        delegate = nil
+    }
     
     func uiSetting() {
         selectionStyle = .none

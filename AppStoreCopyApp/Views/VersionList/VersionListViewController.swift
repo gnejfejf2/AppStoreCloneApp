@@ -18,14 +18,13 @@ class VersionListViewController : SuperViewControllerSetting<VersionListViewMode
     private lazy var sectionTableDatasource = RxTableViewSectionedReloadDataSource<VersionModelSection>(
         configureCell: { (dataSource, tableView, indexPath, item) in
             let cell = tableView.dequeueReusableCell(withIdentifier: VersionTableViewCell.id, for: IndexPath(row: indexPath.row, section: 0)) as! VersionTableViewCell
-//            if(self.leadMoreCount[indexPath.row] == nil){
-//                cell.itemSetting(item: item)
-//            }else{
-//                cell.relaseLabel.numberOfLines = 0
-//                cell.moreButton.isHidden = true
-//                cell.itemSetting(item: item)
-//            }
-            cell.itemSetting(item: item)
+            if(self.leadMoreCount[indexPath.row] == nil){
+                cell.itemSetting(item: item)
+            }else{
+                cell.relaseLabel.numberOfLines = 0
+                cell.moreButton.isHidden = true
+                cell.itemSetting(item: item)
+            }
             cell.row = indexPath.row
             cell.delegate = self
               
