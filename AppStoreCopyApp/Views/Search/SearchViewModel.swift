@@ -63,6 +63,8 @@ class SearchViewModel : ViewModelBuilderProtocol {
             .flatMap { [weak self]  _ -> Observable<RecomendSearchResponse> in
                 guard let self = self else { return .never() }
                 return self.networkAPI.fetchRepositories(type: RecomendSearchResponse.self, .SERARCH_RECOMEND_APP(term: "game"))
+                    .trackError(self.errorTracker)
+                    .trackActivity(self.activityIndicator)
                     .catch{ error in
                         return .never()
                     }

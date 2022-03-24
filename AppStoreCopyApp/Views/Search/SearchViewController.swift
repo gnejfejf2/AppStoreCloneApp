@@ -77,7 +77,7 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
         searchTableView.contentInsetAdjustmentBehavior = .never
         
         loadingView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
+            make.edges.equalTo(view)
         }
         
     }
