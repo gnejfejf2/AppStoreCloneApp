@@ -17,22 +17,17 @@ class AppTopInformationView : UIView , StarSettingProtocol{
     @IBOutlet var routeView: UIView!
     
     @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var informationStackView: UIStackView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
-    
+    @IBOutlet weak var dommyView: UIView!
     @IBOutlet weak var statStackView: UIStackView!
     @IBOutlet weak var starCountLabel: UILabel!
-    
     @IBOutlet weak var downloadButton: UIButton!
-    
     @IBOutlet weak var star1: UIImageView!
-    
     @IBOutlet weak var star2: UIImageView!
-    
     @IBOutlet weak var star3: UIImageView!
-    
     @IBOutlet weak var star4: UIImageView!
-    
     @IBOutlet weak var star5: UIImageView!
     
     

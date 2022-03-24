@@ -17,9 +17,7 @@ extension StarSettingProtocol {
     func starSetting(item : AppModel){
         let upAreageRating = item.averageUserRating.customRounds(count: 1)
         
-        if(item.trackName == "카카오뱅크"){
-            return
-        }
+       
         for i in (1..<6).reversed(){
             if(upAreageRating >= Double(i)){
                 break

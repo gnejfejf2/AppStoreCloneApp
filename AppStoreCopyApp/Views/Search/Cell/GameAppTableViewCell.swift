@@ -38,6 +38,8 @@ class GameAppTableViewCell: UITableViewCell , CellSettingProtocl{
         self.item = item
         guard let item = self.item else { return }
         appTopInformationView.itemSetting(item: item)
+        appTopInformationView.informationStackView.distribution = .fillEqually
+        appTopInformationView.dommyView.isHidden = true
         appTopInformationView.statStackView.isHidden = true
     }
     
