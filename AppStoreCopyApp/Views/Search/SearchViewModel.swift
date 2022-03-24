@@ -23,12 +23,16 @@ class SearchViewModel : ViewModelBuilderProtocol {
         let noSearchData : Driver<[SearchViewSectionModel]>
         let searchData : Driver<[AppModel]>
         let searchAction : Driver<Bool>
+        let outputError : Driver<Error>
+        let loading : Driver<Bool>
     }
     struct Builder {
         let coordinator : SearchViewCoordinator
     }
     
     let builder : Builder
+    let errorTracker = ErrorTracker()
+    let activityIndicator = ActivityIndicator()
     let networkAPI : NetworkServiceProtocol
     let disposeBag = DisposeBag()
     
@@ -43,7 +47,8 @@ class SearchViewModel : ViewModelBuilderProtocol {
         let noSearchData = BehaviorSubject<[SearchViewSectionModel]>(value: [.Keyword(items: []),.App(items: [])])
         let searchData = PublishSubject<[AppModel]>()
         let searchAction = PublishSubject<Bool>()
-                                                             
+        let outputError = PublishSubject<Error>()
+        let loading = PublishSubject<Bool>()
                                                         
         let viewDidLoad = input.viewDidLoad
                                 .asObservable()
@@ -86,10 +91,12 @@ class SearchViewModel : ViewModelBuilderProtocol {
             
         let searchResult = input.searchAction
             .asObservable()
-            .filter{ $0 != nil }
+            .compactMap{ $0 }
             .flatMap { [weak self]  keyword -> Observable<RecomendSearchResponse> in
                 guard let self = self else { return .never() }
-                return self.networkAPI.fetchRepositories(type: RecomendSearchResponse.self, .SERARCH_RECOMEND_APP(term: keyword!))
+                return self.networkAPI.fetchRepositories(type: RecomendSearchResponse.self, .SERARCH_RECOMEND_APP(term: keyword))
+                    .trackError(self.errorTracker)
+                    .trackActivity(self.activityIndicator)
                     .catch{ error in
                         return .never()
                     }
@@ -140,10 +147,23 @@ class SearchViewModel : ViewModelBuilderProtocol {
             .disposed(by: disposeBag)
         
         
+        errorTracker
+            .asDriver()
+            .drive(outputError)
+            .disposed(by: disposeBag)
+        
+        activityIndicator
+           .asDriver()
+            .drive(loading)
+            .disposed(by: disposeBag)
+        
+        
         return .init(
             noSearchData: noSearchData.asDriverOnErrorNever(),
             searchData : searchData.asDriverOnErrorNever(),
-            searchAction: searchAction.asDriverOnErrorNever()
+            searchAction: searchAction.asDriverOnErrorNever(),
+            outputError : outputError.asDriverOnErrorNever(),
+            loading : loading.asDriverOnErrorNever()
         )
     }
     

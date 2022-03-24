@@ -18,6 +18,12 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
     @IBOutlet weak var searchTableView: UITableView!
     
     @IBOutlet weak var noResultLabel: UILabel!
+    
+    var loadingView = LoadingView().then{
+        $0.isHidden = true
+    }
+    
+    
     var searchController = UISearchController(searchResultsController: nil).then{
         $0.searchBar.placeholder = "게임, 앱, 스토리 등"
         $0.searchBar.autocapitalizationType = .none
@@ -48,6 +54,7 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = "검색"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
     
     
@@ -55,6 +62,8 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
         
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        
+        view.addSubview(loadingView)
         
         noSearchTableView.register(UINib(nibName: SearchKeywordTableViewCell.id, bundle: nil), forCellReuseIdentifier: SearchKeywordTableViewCell.id)
         noSearchTableView.register(UINib(nibName: GameAppTableViewCell.id, bundle: nil), forCellReuseIdentifier: GameAppTableViewCell.id)
@@ -65,6 +74,11 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
         
         searchTableView.isHidden = true
         searchTableView.contentInsetAdjustmentBehavior = .never
+        
+        loadingView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        
     }
     
     
@@ -156,6 +170,23 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
             .drive(noResultLabel.rx.isHidden)
             .disposed(by: disposeBag)
         
+        output.outputError
+            .drive(onNext: { [ weak self] value in
+                guard let self = self else { return }
+                let alert = UIAlertController(title: "오류", message: value.localizedDescription , preferredStyle: .alert)
+                let success = UIAlertAction(title: "확인", style: .default)
+                alert.addAction(success)
+                self.present(alert, animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
+        
+        output.loading
+            .drive{ [weak self] loading in
+                guard let self = self else { return }
+                self.loadingView.loadingViewSetting(loading: loading)
+            }
+           .disposed(by: disposeBag)
+        
         
         viewDidLoad.onNext(())
     }
@@ -184,4 +215,7 @@ extension SearchViewController : UITableViewDelegate {
         view.backgroundColor = .primaryColorReverse
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
 }
