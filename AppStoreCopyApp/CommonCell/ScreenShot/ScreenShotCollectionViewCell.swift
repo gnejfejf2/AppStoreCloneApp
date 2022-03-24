@@ -33,7 +33,14 @@ class ScreenShotCollectionViewCell: UICollectionViewCell {
 
     func itemSetting(item: String) {
         self.item = item
-        imageView.setImageUrl(item)
+      
+        if(item.imageDirectionReturn() == .Horiziontal){
+            imageView.setImageUrl(item,imageRotate: true)
+        }else{
+            imageView.setImageUrl(item)
+        }
+        
+        
     }
 
 }

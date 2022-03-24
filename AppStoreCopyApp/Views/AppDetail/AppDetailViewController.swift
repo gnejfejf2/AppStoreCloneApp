@@ -44,7 +44,10 @@ class AppDetailViewController : SuperViewControllerSetting<AppDetailViewModel> ,
     
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = ""
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
+//        largeTitleDisplayMode = .never
+//        navigationItem.title = ""
+//        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     

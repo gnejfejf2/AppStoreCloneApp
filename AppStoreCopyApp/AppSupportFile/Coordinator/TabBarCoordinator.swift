@@ -25,7 +25,7 @@ class TabBarCoordinator: BaseCoordinator {
         start(coordinator: arcadeViewCoordinator)
         start(coordinator: searchViewCoordinator)
         
-        todayViewCoordinator.navigationController.tabBarItem = UITabBarItem(title: "투데이", image: UIImage(systemName: "doc.text.image"), tag: 0)
+        todayViewCoordinator.navigationController.tabBarItem = UITabBarItem(title: "투데이", image: UIImage(named: "tabbar_today"), tag: 0)
         gameViewCoordinator.navigationController.tabBarItem = UITabBarItem(title: "게임", image: UIImage(named: "tabbar_games"), tag: 1)
         appTapViewCoordinator.navigationController.tabBarItem = UITabBarItem(title: "앱", image: UIImage(named: "tabbar_apps"), tag: 2)
         arcadeViewCoordinator.navigationController.tabBarItem = UITabBarItem(title: "Arcade", image: UIImage(named: "tabbar_arcade"), tag: 3)

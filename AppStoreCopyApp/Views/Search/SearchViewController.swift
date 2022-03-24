@@ -72,6 +72,7 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
         searchTableView.register(UINib(nibName: SearchAppVerticalTableViewCell.id, bundle: nil), forCellReuseIdentifier: SearchAppVerticalTableViewCell.id)
         searchTableView.register(UINib(nibName: SearchAppHoriziontalTableViewCell.id, bundle: nil), forCellReuseIdentifier: SearchAppHoriziontalTableViewCell.id)
         
+       
         searchTableView.isHidden = true
         searchTableView.contentInsetAdjustmentBehavior = .never
         
@@ -87,6 +88,8 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
         noSearchTableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
+        searchTableView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
     }
     
     override func viewModelBinding() {
@@ -137,6 +140,7 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
             .withLatestFrom(output.noSearchData) { ($0 , $1) }
             .subscribe{ [weak self]  indexPath , datas in
                 guard let self = self else { return }
+                self.searchController.searchBar.resignFirstResponder()
                 self.searchController.isActive = true
                 self.searchController.searchBar.rx.text.onNext(datas[0].items[indexPath[1]].returnData())
                 searchActionInput.onNext(datas[0].items[indexPath[1]].returnData())
@@ -216,6 +220,9 @@ extension SearchViewController : UITableViewDelegate {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        view.endEditing(true)
+        if(scrollView == searchTableView){
+            searchController.searchBar.resignFirstResponder()
+        }
     }
 }
+

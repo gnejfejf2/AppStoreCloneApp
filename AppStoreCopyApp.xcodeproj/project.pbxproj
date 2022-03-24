@@ -85,6 +85,7 @@
 		7E33627127EC0464002E49F1 /* Double_ExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E33627027EC0464002E49F1 /* Double_ExtensionTest.swift */; };
 		7E33627327EC0730002E49F1 /* Date_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E33627227EC0730002E49F1 /* Date_Extension.swift */; };
 		7E33627527EC079A002E49F1 /* Int_ExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E33627427EC079A002E49F1 /* Int_ExtensionTest.swift */; };
+		7E33627727EC0A89002E49F1 /* ViewController_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E33627627EC0A89002E49F1 /* ViewController_Extension.swift */; };
 		7E997E8727E81D9500FB51A8 /* Int_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997E8627E81D9500FB51A8 /* Int_Extension.swift */; };
 		7E997E8A27E8313D00FB51A8 /* AppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997E8927E8313D00FB51A8 /* AppDetailViewController.swift */; };
 		7E997E8C27E8314800FB51A8 /* AppDetailViewCooridnator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E997E8B27E8314800FB51A8 /* AppDetailViewCooridnator.swift */; };
@@ -192,6 +193,7 @@
 		7E33627027EC0464002E49F1 /* Double_ExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double_ExtensionTest.swift; sourceTree = "<group>"; };
 		7E33627227EC0730002E49F1 /* Date_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date_Extension.swift; sourceTree = "<group>"; };
 		7E33627427EC079A002E49F1 /* Int_ExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int_ExtensionTest.swift; sourceTree = "<group>"; };
+		7E33627627EC0A89002E49F1 /* ViewController_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Extension.swift; sourceTree = "<group>"; };
 		7E997E8627E81D9500FB51A8 /* Int_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int_Extension.swift; sourceTree = "<group>"; };
 		7E997E8927E8313D00FB51A8 /* AppDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewController.swift; sourceTree = "<group>"; };
 		7E997E8B27E8314800FB51A8 /* AppDetailViewCooridnator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewCooridnator.swift; sourceTree = "<group>"; };
@@ -394,14 +396,15 @@
 		7E0C8D5A27E6D4B000B51BCB /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				7E0C8D5B27E6D4B000B51BCB /* String_Extension.swift */,
 				7E0C8D5C27E6D4B000B51BCB /* Color_Extension.swift */,
-				7E0C8D5D27E6D4B000B51BCB /* Reactive_Extension.swift */,
-				7E0C8D5E27E6D4B000B51BCB /* UI_Extension.swift */,
-				7E0C8D5F27E6D4B000B51BCB /* Encodable_Extension.swift */,
-				7E0C8DBF27E80C3300B51BCB /* Double_Extension.swift */,
-				7E997E8627E81D9500FB51A8 /* Int_Extension.swift */,
 				7E33627227EC0730002E49F1 /* Date_Extension.swift */,
+				7E0C8DBF27E80C3300B51BCB /* Double_Extension.swift */,
+				7E0C8D5F27E6D4B000B51BCB /* Encodable_Extension.swift */,
+				7E997E8627E81D9500FB51A8 /* Int_Extension.swift */,
+				7E0C8D5D27E6D4B000B51BCB /* Reactive_Extension.swift */,
+				7E0C8D5B27E6D4B000B51BCB /* String_Extension.swift */,
+				7E0C8D5E27E6D4B000B51BCB /* UI_Extension.swift */,
+				7E33627627EC0A89002E49F1 /* ViewController_Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -892,6 +895,7 @@
 				7E0C8D0927E6D19700B51BCB /* AppDelegate.swift in Sources */,
 				7E0C8DB827E76A5800B51BCB /* SearchAppHoriziontalTableViewCell.swift in Sources */,
 				7E0C8D7827E6D70D00B51BCB /* ArcadeViewCoordinator.swift in Sources */,
+				7E33627727EC0A89002E49F1 /* ViewController_Extension.swift in Sources */,
 				7E33624D27E9ABF7002E49F1 /* VersionListViewController.swift in Sources */,
 				7E0C8DAB27E7180400B51BCB /* RecomendSearchResponse.swift in Sources */,
 				7E0C8D0B27E6D19700B51BCB /* SceneDelegate.swift in Sources */,
