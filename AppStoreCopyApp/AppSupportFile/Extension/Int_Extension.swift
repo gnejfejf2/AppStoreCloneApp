@@ -11,7 +11,7 @@ extension Int{
     func countToString() -> String{
         if(self >= 10000){
 
-            return "\((Double(self) / 10000).rounded()) 만"
+            return "\((Double(self) / 10000).customRounds(count: 1)) 만"
             
         }else if(self >= 1000){
             
