@@ -170,6 +170,13 @@ class SearchViewController : SuperViewControllerSetting<SearchViewModel>{
             .drive(searchTableView.rx.isHidden)
             .disposed(by: disposeBag)
         
+        output.searchData
+            .drive{ [weak self] _ in
+                guard let self = self else { return }
+                self.searchTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+            }
+            .disposed(by: disposeBag)
+        
         output.searchAction
             .drive(noResultLabel.rx.isHidden)
             .disposed(by: disposeBag)
