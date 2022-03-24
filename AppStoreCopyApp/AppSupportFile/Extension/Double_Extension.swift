@@ -13,7 +13,7 @@ extension Double {
     func customRounds(count : Int) -> Double{
         
         if(count == 0){
-            return self
+            return self.rounded()
         }
         let pow = pow(Double(10), Double(count))
         let upPow = (self * pow).rounded()

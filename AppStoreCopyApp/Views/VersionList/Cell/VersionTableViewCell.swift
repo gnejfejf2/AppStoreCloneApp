@@ -36,7 +36,8 @@ class VersionTableViewCell : UITableViewCell , CellSettingProtocl {
     
     var moreButton = UIButton().then{
         $0.setTitle("더 보기", for: .normal)
-        $0.setTitleColor(.blue, for: .normal)
+        $0.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        $0.setTitleColor(UIColor(named: "AccentColor"), for: .normal)
     }
     
     let defaultHegiht : CGFloat = 55
@@ -101,6 +102,8 @@ class VersionTableViewCell : UITableViewCell , CellSettingProtocl {
     func itemSetting(item : VersionModel) {
         versionLabel.text = item.version
         versionDateLable.text = item.currentVersionReleaseDate.distanceTimeCal()
+        relaseLabel.text = item.releaseNotes
+        
         if(item.releaseNotes == "" || item.releaseNotes == nil){
             snp.makeConstraints { make in
                 make.height.equalTo(0)
@@ -109,9 +112,8 @@ class VersionTableViewCell : UITableViewCell , CellSettingProtocl {
             return
         }
         
-        relaseLabel.text = item.releaseNotes
         
-        if(defaultHegiht > versionLabel.heightForView()){
+        if(defaultHegiht > relaseLabel.heightForView()){
             moreButton.isHidden = true
         }
     }

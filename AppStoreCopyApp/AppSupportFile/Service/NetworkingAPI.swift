@@ -12,49 +12,56 @@ import RxCocoa
 class NetworkingAPI : NetworkServiceProtocol{
     static let shared = NetworkingAPI()
     
-    
     func fetchRepositories<T: Decodable>(type : T.Type , _ api: AppStoreApi) -> Observable<T> {
-//        Observable.from([api])
-////            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
-//            .map { url -> URLRequest in
-//                return try url.asURLRequest()
-//            }
-//            .flatMap { request -> Observable<(response: HTTPURLResponse, data: Data)> in
-//                return URLSession.shared.rx
-//                    .response(request: request)
-////                    .observe(on: ConcurrentDispatchQueueScheduler(qos: .background))
-//            }
-//            .filter { response, _ in
-//                return 200..<300 ~= response.statusCode
-//            }
-//
-//            .map { responseData , data -> T in
-//
-//
-//                let product = try JSONDecoder().decode(T.self, from: data)
-//
-//
-//                return product
-//            }
-        
+
         URLSession.shared.rx
             .data(request : api.asURLRequest())
             .map{ item in
                 let product = try JSONDecoder().decode(T.self, from: item)
                 return product
             }
-           
-//            .filter(checkModel)
-//            .flatMap(Completable.wrap(processObject))
-//            .asCompletable()
-    
+
     }
 }
 
+class MockNetworking  : NetworkServiceProtocol{
+    static let shared = MockNetworking()
 
+    let jsonDecoder = JSONDecoder()
 
+    func fetchRepositories<T: Decodable>(type : T.Type , _ api: AppStoreApi) -> Observable<T> {
+        
+        
+        switch api{
+        case .SERARCH_RECOMEND_APP(let term ) :
+            
+            let item =  try! jsonDecoder.decode(T.self, from: stubbedResponse("Search\(term)"))
+            
+            
+            return Observable.of(item)
+            
+            
+        }
 
-
+    }
+    
+    
+    
+ 
+    
+    
+    
+    func stubbedResponse(_ filename: String) -> Data! {
+        let bundlePath = Bundle.main.path(forResource: "Json", ofType: "bundle")
+        let bundle = Bundle(path: bundlePath!)
+        let path = bundle?.path(forResource: filename, ofType: "json")
+        return (try? Data(contentsOf: URL(fileURLWithPath: path!)))
+    }
+    
+    
+    
+}
+    
 //Moya 처럼 사용 가능하게 만들기위해
 typealias HTTPHeaders = [String : String]
 
@@ -72,13 +79,7 @@ enum HTTPMethod : String{
 }
 
 
-struct SearchParam : Encodable {
-    var term : String = "game"
-    var entity : String = "software"
-    var country : String = "KR"
-    var lang : String = "KO"
-    var limit : Int = 10
-}
+
 
 enum AppStoreApi {
     
@@ -114,7 +115,7 @@ extension AppStoreApi : TargetType{
     var parameters: RequestParams {
         switch self{
         case .SERARCH_RECOMEND_APP(let term) :
-            let param : SearchParam = SearchParam(term : term)
+            let param : SearchRequestModel = SearchRequestModel(term : term)
             
             return .query(param)
             

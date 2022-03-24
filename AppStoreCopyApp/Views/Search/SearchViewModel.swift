@@ -45,27 +45,16 @@ class SearchViewModel : ViewModelBuilderProtocol {
         let searchAction = PublishSubject<Bool>()
                                                              
                                                         
+        let viewDidLoad = input.viewDidLoad
+                                .asObservable()
+                                .share()
         
-        
-        input.viewDidLoad
-            .asObservable()
+        let newItem = viewDidLoad
             .map{ _ -> [String] in
                 return ["발견","카트라이더","포도알","게임"]
             }
-            .withLatestFrom(noSearchData) { ($0 , $1) }
-            .subscribe(onNext: { (keywords, data) in
-                var original = data
-                var keywordSectionItem : [SearchSectionItem] = []
-                keywords.forEach{
-                    keywordSectionItem.append(.Keyword(keyword: $0))
-                }
-                original[0] = .Keyword(items: keywordSectionItem)
-                noSearchData.onNext(original)
-            })
-            .disposed(by: disposeBag)
-        
-        input.viewDidLoad
-            .asObservable()
+
+        let recommendGame =  viewDidLoad
             .flatMap { [weak self]  _ -> Observable<RecomendSearchResponse> in
                 guard let self = self else { return .never() }
                 return self.networkAPI.fetchRepositories(type: RecomendSearchResponse.self, .SERARCH_RECOMEND_APP(term: "game"))
@@ -73,17 +62,25 @@ class SearchViewModel : ViewModelBuilderProtocol {
                         return .never()
                     }
             }
-            .withLatestFrom(noSearchData) { ($0 , $1) }
-            .subscribe(onNext: { (appDatas, data) in
-                var original = data
+            .map{ $0.results }
+           
+        
+        Observable
+            .combineLatest(newItem, recommendGame){ ($0 , $1) }
+            .subscribe(onNext: { (newItem, recommendGame) in
                 var keywordSectionItem : [SearchSectionItem] = []
-                appDatas.results.forEach{
-                    keywordSectionItem.append(.App(appModel: $0))
+                newItem.forEach{
+                    keywordSectionItem.append(.Keyword(keyword: $0))
                 }
-                original[1] = .App(items: keywordSectionItem)
-                noSearchData.onNext(original)
+                
+                var recommendGameSectionItems : [SearchSectionItem] = []
+                recommendGame.forEach{
+                    recommendGameSectionItems.append(.App(appModel: $0))
+                }
+                noSearchData.onNext([.Keyword(items: keywordSectionItem),.App(items: recommendGameSectionItems)])
             })
             .disposed(by: disposeBag)
+        
 
         
             

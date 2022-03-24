@@ -20,7 +20,7 @@ target 'AppStoreCopyApp' do
 
   target 'AppStoreCopyAppTests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'RxTest'
   end
 
 
